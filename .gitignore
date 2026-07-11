@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.netlify/
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+.idea/
+.vscode/*.local.json
+.DS_Store
+Thumbs.db
+.theme-dist/

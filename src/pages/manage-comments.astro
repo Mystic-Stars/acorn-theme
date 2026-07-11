@@ -1,0 +1,72 @@
+---
+import { Divider, Title } from '@components/animal';
+import TwikooAdmin from '@components/island/TwikooAdmin.astro';
+import { siteConfig } from '@/config';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="岛屿管理台" description={`${siteConfig.name} 评论管理`} noindex>
+  <section class="container comment-admin-page" aria-labelledby="comment-admin-heading">
+    <header class="comment-admin-header">
+      <p class="keeper-label">ISLAND KEEPER</p>
+      <Title size="large" color="app-teal">
+        <span id="comment-admin-heading">岛屿管理台</span>
+      </Title>
+      <span class="subtitle">使用评论管理员密码进入，只在此页面管理留言。</span>
+    </header>
+
+    <Divider type="dashed-brown" />
+
+    <div class="admin-workspace">
+      <TwikooAdmin />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .comment-admin-page {
+    padding-top: clamp(2rem, 7vw, 5rem);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+    max-width: min(100%, 68rem);
+    margin: 0 auto;
+  }
+
+  .comment-admin-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .keeper-label {
+    margin: 0;
+    color: var(--color-primary-active);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    background: var(--color-surface-raised);
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1.5px dashed var(--color-primary);
+  }
+
+  .comment-admin-header :global(.animal-title) {
+    margin: 0;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--color-surface-glass);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--color-border);
+  }
+
+  .admin-workspace {
+    margin-top: 2.5rem;
+  }
+</style>
