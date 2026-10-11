@@ -1,0 +1,52 @@
+---
+import { Card, Time } from '@components/animal';
+---
+
+<Card className="sidebar-card island-time-card">
+  <section aria-label="当前本地时间">
+    <Time client:only="react" className="island-time" />
+  </section>
+</Card>
+
+<style>
+  :global(.island-time-card) {
+    padding: 0.75rem !important;
+  }
+
+  :global(.island-time-card:hover) {
+    transform: none !important;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    container-type: inline-size;
+  }
+
+  section :global(.island-time) {
+    max-width: 100%;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  section :global([class*='animal-acDate-']) {
+    padding-right: 0.75rem;
+  }
+
+  section :global([class*='animal-acTime-']),
+  section :global([class*='animal-acColon-']) {
+    font-size: 2rem;
+  }
+
+  @container (max-width: 16rem) {
+    section :global(.island-time) {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    section :global([class*='animal-acDate-']) {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+</style>
